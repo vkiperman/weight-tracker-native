@@ -53,7 +53,6 @@ function WeightContextProvider({
 				...value,
 				weights,
 			}));
-			console.log(2, weights);
 		};
 		setValue(value => ({ ...value, addWeight }));
 	}, []);
