@@ -23,6 +23,16 @@ function Welcome() {
 export default Welcome;
 
 const styles = StyleSheet.create({
+	welcome: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		padding: 20,
+		borderRadius: 8,
+		borderColor: '#FFFFFFAA',
+		borderWidth: 3,
+		gap: 7,
+		margin: 15,
+	},
 	headerText: {
 		fontWeight: '800',
 		color: '#FFFFFFEE',
@@ -34,16 +44,6 @@ const styles = StyleSheet.create({
 		fontSize: 18,
 		fontFamily: 'Roboto_400Regular',
 		textAlign: 'center',
-	},
-	welcome: {
-		alignItems: 'center',
-		// justifyContent: 'center',
-		padding: 20,
-		borderRadius: 8,
-		borderColor: '#FFFFFFAA',
-		borderWidth: 3,
-		gap: 7,
-		margin: 15,
 	},
 	mainButton: {
 		marginTop: 14,

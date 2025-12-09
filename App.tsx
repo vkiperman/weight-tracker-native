@@ -13,11 +13,12 @@ import {
 import { MaterialIcons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// import { setItem } from 'expo-secure-store';
 import Chart from './components/Chart';
 import Main from './screens/Main.Screen';
 import WeightEntry from './screens/WeightEntry.Screen';
 import WeightContextProvider from './store/context/weight-context';
+
+// import { setItem } from 'expo-secure-store';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -57,7 +58,7 @@ export default function App() {
 							name='main'
 							options={({ navigation }) => {
 								return {
-									title: 'Weight Tracker',
+									title: 'GlowDown',
 									headerRight: ({ tintColor }) => (
 										<MaterialIcons
 											size={22}

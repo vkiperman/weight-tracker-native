@@ -1,8 +1,10 @@
+import { useWindowDimensions } from 'react-native';
 import { Weight } from '../types/weight.type';
 import { fillLinearDaily } from '../utils/data';
 import { dateFormatString } from '../utils/date';
 
 export function useChartData(weights: Weight[]) {
+	const { width, height } = useWindowDimensions();
 	const data = fillLinearDaily(weights);
 	return {
 		labels: data.map(({ x }) => dateFormatString(x)),

@@ -9,7 +9,6 @@ export const chartConfig: AbstractChartConfig = {
 	labelColor: o => `rgb(255 255 255 / ${o})`,
 	linejoinType: 'round',
 	decimalPlaces: 1,
-	scrollableDotFill: 'red',
 	useShadowColorFromDataset: true,
 	propsForBackgroundLines: {
 		opacity: 0,

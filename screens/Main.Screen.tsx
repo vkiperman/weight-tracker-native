@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
 		paddingBlock: 10,
 		paddingInline: 15,
 		gap: 0,
-		alignItems: 'flex-start',
-		justifyContent: 'flex-start',
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	scrollView: {
 		flex: 1,
