@@ -39,7 +39,7 @@ function Snapshot({ style }: Props) {
 				<Text style={[styles.textBase, styles.today, styles.italic]}>
 					Projection: Tomorrow's weight:{' '}
 					<Text style={[styles.textBase, styles.bold, styles.italic]}>
-						{projection.at(-1)?.y!}
+						{projection.at(-1)?.y!} lbs
 					</Text>
 				</Text>
 			</View>
