@@ -13,6 +13,12 @@ export function getStartOfToday(): Date {
 	return new Date(now.setHours(0, 0, 0, 0));
 }
 
+export function getStartOfOffsetDay(offset: number = 1): Date {
+	const now = new Date();
+	now.setDate(now.getDate() - offset);
+	return new Date(now.setHours(0, 0, 0, 0));
+}
+
 export function dateFormatString(dateString: string) {
 	const { locale, timeZone } = Intl.DateTimeFormat().resolvedOptions();
 	const dateFormatter = Intl.DateTimeFormat(

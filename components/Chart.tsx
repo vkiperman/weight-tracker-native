@@ -96,6 +96,7 @@ function Chart() {
 					/>
 				</Pressable>
 			</ScrollView>
+			{/* <Text style={{ color: 'white' }}>{JSON.stringify(data)}</Text> */}
 		</>
 	);
 }

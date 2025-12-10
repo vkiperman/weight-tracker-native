@@ -1,5 +1,5 @@
 import { getItemAsync, setItemAsync } from 'expo-secure-store';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useEffect, useState } from 'react';
 import { Weight } from '../../types/weight.type';
 import { getStartOfToday } from '../../utils/date';
 
@@ -22,18 +22,14 @@ function WeightContextProvider({
 		addWeight: () => {},
 	});
 
-	// Load weights asynchronously after mount
-	useEffect(() => {
-		const loadWeights = async () => {
-			try {
-				const stored = await getItemAsync(secureStoreItemName);
-				const weights = JSON.parse(stored || '[]');
-				setValue(v => ({ ...v, weights }));
-			} catch (error) {
-				console.error('Failed to load weights:', error);
-			}
-		};
-		loadWeights();
+	const updateValue = useCallback(async () => {
+		try {
+			const stored = await getItemAsync(secureStoreItemName);
+			const weights = JSON.parse(stored || '[]');
+			setValue(value => ({ ...value, weights }));
+		} catch (error) {
+			console.error('Failed to load weights:', error);
+		}
 	}, []);
 
 	useEffect(() => {
@@ -46,15 +42,24 @@ function WeightContextProvider({
 					{ x, y },
 				])
 			);
-			const weights = JSON.parse(
-				(await getItemAsync(secureStoreItemName)) || '[]'
-			);
-			setValue(value => ({
-				...value,
-				weights,
-			}));
+			updateValue();
 		};
 		setValue(value => ({ ...value, addWeight }));
+	}, [value.weights]);
+
+	// Load weights asynchronously after mount
+	useEffect(() => {
+		const loadWeights = async () => {
+			// await setItemAsync(
+			// 	secureStoreItemName,
+			// 	`[
+			// 	{"x": "${getStartOfOffsetDay(3).toISOString()}", "y": 200.9},
+			// 	{"x": "${getStartOfOffsetDay(2).toISOString()}", "y": 200.5},
+			// 	{"x": "${getStartOfOffsetDay().toISOString()}", "y": 200}]`
+			// );
+			await updateValue();
+		};
+		loadWeights();
 	}, []);
 
 	return (

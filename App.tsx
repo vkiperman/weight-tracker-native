@@ -58,7 +58,7 @@ export default function App() {
 							name='main'
 							options={({ navigation }) => {
 								return {
-									title: 'GlowDown',
+									title: 'TrendTrim',
 									headerRight: ({ tintColor }) => (
 										<MaterialIcons
 											size={22}
