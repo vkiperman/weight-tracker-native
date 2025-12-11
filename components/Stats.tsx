@@ -50,7 +50,7 @@ function Stats({ style }: Props) {
 	const indicators = useRef({
 		up: '↑',
 		down: '↓',
-		avg: '\u2003',
+		avg: '',
 	});
 
 	return (
