@@ -1,5 +1,5 @@
 import React, { useContext, useMemo, useRef } from 'react';
-import { Platform, PressableProps, StyleSheet, Text, View } from 'react-native';
+import { PressableProps, StyleSheet, Text, View } from 'react-native';
 import { WeightContext } from '../store/context/weight-context';
 import {
 	getAverage,
@@ -21,8 +21,8 @@ function Stats({ style }: Props) {
 	const { weights } = useContext(WeightContext);
 	const stats = useMemo(
 		() => ({
-			High: getHigh(weights, 'y'),
 			Avg: getAverage(weights, 'y'),
+			High: getHigh(weights, 'y'),
 			Low: getLow(weights, 'y'),
 			Daily: getDailyPerformance(weights),
 		}),
@@ -50,7 +50,7 @@ function Stats({ style }: Props) {
 	const indicators = useRef({
 		up: '↑',
 		down: '↓',
-		avg: Platform.OS ? ' x\u0304 ' : '   ',
+		avg: '\u2003',
 	});
 
 	return (
