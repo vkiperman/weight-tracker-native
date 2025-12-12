@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useRef } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { PressableProps, StyleSheet, Text, View } from 'react-native';
 import { WeightContext } from '../store/context/weight-context';
 import {
@@ -47,12 +47,6 @@ function Stats({ style }: Props) {
 		[stats]
 	);
 
-	const indicators = useRef({
-		up: '↑',
-		down: '↓',
-		avg: '',
-	});
-
 	return (
 		<View style={[styles.main, style]}>
 			<Text style={[styles.plainText, styles.header]}>Stats</Text>
@@ -64,10 +58,7 @@ function Stats({ style }: Props) {
 						numberOfLines={1}>
 						{title}
 					</Text>
-					<Text style={styles[className]}>
-						{stat.toFixed(2)}
-						<Text>{indicators.current[className]}</Text>
-					</Text>
+					<Text style={styles[className]}>{stat.toFixed(2)}</Text>
 				</View>
 			))}
 		</View>

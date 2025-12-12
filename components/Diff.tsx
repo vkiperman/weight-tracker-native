@@ -1,4 +1,4 @@
-import { useCallback, useContext, useMemo, useRef } from 'react';
+import { useCallback, useContext, useMemo } from 'react';
 import { PressableProps, StyleSheet, Text, View } from 'react-native';
 import { WeightContext } from '../store/context/weight-context';
 import { fillLinearDaily } from '../utils/data';
@@ -57,12 +57,6 @@ function Diff({ style }: Props) {
 		[getDiff, weights]
 	);
 
-	const indicators = useRef({
-		up: '↑',
-		down: '↓',
-		none: ' ',
-	});
-
 	return (
 		<View style={[styles.main, style]}>
 			<Text style={[styles.header]}>Trends</Text>
@@ -77,7 +71,6 @@ function Diff({ style }: Props) {
 					</Text>
 					<Text style={[styles[item.diff.className]]}>
 						{item.diff.value}
-						{indicators.current[item.diff.className]}
 					</Text>
 				</View>
 			))}
